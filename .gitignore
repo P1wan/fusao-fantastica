@@ -1,3 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+#Ignore the settings.json to avoid conflict between machines
+.vscode/settings.json
