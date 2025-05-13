@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhpi0oilbrbw6"]
+
+[ext_resource type="FontFile" uid="uid://81yms7800585" path="res://assets/sprites/PixelOperator8-Bold.ttf" id="1_88dtm"]
+[ext_resource type="Texture2D" uid="uid://cscu8bd382ecm" path="res://assets/sprites/UI/full heart.png" id="1_qsrhr"]
+[ext_resource type="Texture2D" uid="uid://cdg3m3bhb8uf6" path="res://assets/sprites/UI/haato.png" id="2_jfrnt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c3bj"]
+atlas = ExtResource("1_qsrhr")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p724"]
+atlas = ExtResource("1_qsrhr")
+region = Rect2(33, 0, 63, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avx27"]
+atlas = ExtResource("2_jfrnt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eadip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c3bj")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p724")
+}],
+"loop": true,
+"name": &"half",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avx27")
+}],
+"loop": true,
+"name": &"last",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_igohd"]
+font = ExtResource("1_88dtm")
+font_size = 13
+
+[node name="UI" type="CanvasLayer"]
+layer = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eadip")
+animation = &"full"
+
+[node name="HintLabel" type="Label" parent="."]
+offset_right = 100.0
+offset_bottom = 87.0
+size_flags_horizontal = 4
+label_settings = SubResource("LabelSettings_igohd")
+horizontal_alignment = 1
+vertical_alignment = 1

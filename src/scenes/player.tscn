@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://dg5g64dmje3aj"]
+
+[ext_resource type="Script" path="res://src/scripts/player.gd" id="1_bu0hx"]
+[ext_resource type="Texture2D" uid="uid://bqar6s7vfwffv" path="res://assets/sprites/characters/Sprite-0001.png" id="2_agyc1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8im1t"]
+atlas = ExtResource("2_agyc1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4ywv"]
+atlas = ExtResource("2_agyc1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wr6w"]
+atlas = ExtResource("2_agyc1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_icoyj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8im1t")
+}],
+"loop": true,
+"name": &"idle_bia",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4ywv")
+}],
+"loop": true,
+"name": &"idle_rafa",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wr6w")
+}],
+"loop": true,
+"name": &"idle_tonico",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8o8d3"]
+size = Vector2(28, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdn3k"]
+size = Vector2(19, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jfser"]
+size = Vector2(19, 15)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_bu0hx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_icoyj")
+animation = &"idle_rafa"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="ShapeTonico" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_8o8d3")
+
+[node name="ShapeBia" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_sdn3k")
+
+[node name="ShapeRafa" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 8.5)
+shape = SubResource("RectangleShape2D_jfser")
