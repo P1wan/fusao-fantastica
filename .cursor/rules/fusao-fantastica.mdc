@@ -1,0 +1,46 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# GitHub Copilot Custom Instructions for **Fusão Fantástica** - Game Specific Philosophy
+
+> These guidelines shape Copilot Chat answers and inline completions for this repository, focusing on the unique design and educational goals of Fusão Fantástica. For general Godot Engine best practices, refer to the existing project's Godot coding standards.
+
+## 1. Game Philosophy & Educational Goals
+
+-   **Empathy-Driven Design (Mecânicas pela Empatia)**:
+    * **Core Principle:** Every gameplay mechanic, puzzle, and level design choice should, where possible, reinforce the idea that different body types and abilities are valuable and necessary for success.
+    * **Guidance:** When suggesting solutions or new mechanics, explain how they encourage the player to understand and utilize the unique strengths of Rafa, Bia, and Tonico. For example, "This puzzle requires Bia's high jump, emphasizing her agility, while the subsequent one needs Tonico's strength to move a block, showing how their skills complement each other."
+    * **Character Showcase:** Ensure that demo levels (like the first tutorial phase) provide clear, distinct scenarios for each character to shine, demonstrating their unique contribution.
+
+-   **Social-Emotional Learning (Enriquecimento Socioemocional para 9-10 anos)**:
+    * **Target Audience Focus:** All suggestions (narrative, UI, mechanics) must be appropriate and engaging for children aged 9-10.
+    * **Positive Reinforcement:** Code and design should support future implementation of "Contextual Empathy Bubbles". Even if not implementing the UI now, suggest script hooks or events where such positive peer feedback could be triggered.
+    * **Reduce Frustration:** Puzzles should be challenging but fair. If a mechanic is complex, Copilot should suggest breaking it down into simpler steps or providing clearer in-game cues (e.g., through level design or temporary hint text).
+
+-   **Child-Friendly Language and Presentation (9-10 anos)**:
+    * **UI Text:** All user interface text and in-game messages *must* be in **Portuguese (pt-BR)** and use language accessible to 9-10 year olds.
+    * **Code Comments:** Keep code comments in clear **English**, as per existing `copilot-instructions.md`. However, if explaining a game concept directly tied to the children's understanding (e.g., "Rafa needs to crawl here because the passage is small"), the comment can be simpler.
+    * **Placeholder Assets:** Placeholder assets should be simple, clearly labeled (as per your previous instructions, e.g., "Tonico Andando 1"), and visually non-distracting for a young audience.
+
+## 2. Development Practices for This Project
+
+-   **Iterative Development & Placeholder Strategy (Demo Focus)**:
+    * **Priority for Demo:** For the current demo sprint, prioritize core mechanics (movement, character swap, Tonico's push/pull, damage, respawn) using placeholders extensively for art and sound.
+    * **Placeholder Integration:** Copilot should assist in structuring code so that placeholders (e.g., `Sprite2D` texture swaps, `AudioManager.play_sfx("placeholder_jump")`) can be easily identified and replaced with final assets later. For instance, "Use a specific function `update_player_sprite_placeholder()` that can later be adapted for `AnimationPlayer`."
+    * **Future-Proofing (Light):** While focusing on the demo, if a simple structural choice makes future expansion (like adding more complex animations or sounds) easier without significant current overhead, prefer it.
+
+-   **Modular Design for Core Game Elements**:
+    * **Player, Interactables, Hazards:** Reinforce the separation of concerns. For example, player abilities in `player.gd`, stone logic in `stone.gd`, and hazard behavior in `hazard.gd`.
+    * **Signal-Driven Communication:** Emphasize using Godot's signals for interactions between these elements to maintain loose coupling (e.g., hazard emits a "player_damaged" signal, player emits "character_swapped"). This aligns with general Godot best practices but is crucial for this project's evolving nature.
+
+-   **Level Design for Tutorialization (Specifically for Demo/Phase 1)**:
+    * **Clarity and Introduction:** The first level *is* a tutorial. Level design suggestions should introduce mechanics one at a time, in a safe environment, before requiring combinations.
+    * **Implicit Guidance:** Suggest visual cues in the level design itself to hint at which character's abilities are needed (e.g., a narrow gap clearly sized for Rafa, a high ledge for Bia, a heavy-looking block for Tonico).
+
+## 3. Project-Specific Naming and Structure (Referencing `copilot-instructions.md` and SGDD)
+
+-   **Character Names:** Always use "Rafa", "Bia", "Tonico" when referring to the characters.
+-   **Asset Paths:** Strictly follow `res://assets/...` as defined in `copilot-instructions.md`.
+-   **Key Mechanics from SGDD:** When discussing core game features, use terminology from the SGDD if applicable (e.g., "Character Swap", "Contextual Empathy Bubbles").

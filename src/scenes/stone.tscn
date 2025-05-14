@@ -18,8 +18,10 @@ freeze_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(2, 2)
 texture = ExtResource("1_jiq5n")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["pushable"]]
 position = Vector2(0.5, 0.5)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_0488s")

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1747140783
+::res://::1747219915
 icon.svg::CompressedTexture2D::1447882900164461647::1746017046::1746017323::1::::<><>::
 README.md::TextFile::-1::1746017046::0::1::::<><>::
 ::res://assets/::1746014284
@@ -13,11 +13,32 @@ hurt.wav::AudioStreamWAV::6337824012646046711::1746614912::1747047843::1::::<><>
 jump.wav::AudioStreamWAV::8982366011808556924::1746614912::1747047843::1::::<><>::
 power_up.wav::AudioStreamWAV::6557493731339760096::1746614912::1747047843::1::::<><>::
 tap.wav::AudioStreamWAV::7348671695950257192::1746614912::1747047843::1::::<><>::
-::res://assets/sprites/::1747047825
+::res://assets/sprites/::1747221103
 PixelOperator8-Bold.ttf::FontFile::2371385295401716464::1746614912::1747047647::1::::<><>::
 PixelOperator8.ttf::FontFile::5650222996135140991::1746614912::1747047647::1::::<><>::
-::res://assets/sprites/characters/::1747047843
+::res://assets/sprites/bg/::1747222041
+Background_1.png::CompressedTexture2D::8362286539050364217::1560837594::1747222041::1::::<><>::
+Background_2.png::CompressedTexture2D::6096791296734609326::1560837602::1747222041::1::::<><>::
+BG1.png::CompressedTexture2D::7664641795524800772::1585236072::1747222041::1::::<><>::
+BG2.png::CompressedTexture2D::1449958502509039669::1585236078::1747222041::1::::<><>::
+BG3.png::CompressedTexture2D::4102845018370693430::1585236082::1747222041::1::::<><>::
+::res://assets/sprites/characters/::1747223527
+bia_idle.png::CompressedTexture2D::1170806149563850115::1747221893::1747222041::1::::<><>::
+bia_jump.png::CompressedTexture2D::5410946546792069068::1747221895::1747222041::1::::<><>::
+bia_land.png::CompressedTexture2D::3388479795039099691::1747223554::1747223555::1::::<><>::
+bia_sprint.png::CompressedTexture2D::962115743123938699::1747221895::1747222041::1::::<><>::
+bia_walk.png::CompressedTexture2D::5004222412712159101::1747221843::1747222041::1::::<><>::
+rafa_idle.png::CompressedTexture2D::5391740329539225827::1747222286::1747222293::1::::<><>::
+rafa_jump.png::CompressedTexture2D::5497427789281107333::1747222286::1747222293::1::::<><>::
+rafa_land.png::CompressedTexture2D::6431791833948961404::1747222285::1747222293::1::::<><>::
+rafa_sprint.png::CompressedTexture2D::7993953469271863823::1747222284::1747222293::1::::<><>::
+rafa_walk.png::CompressedTexture2D::8567630333998193291::1747222283::1747222293::1::::<><>::
 Sprite-0001.png::CompressedTexture2D::3510530726205441011::1746614912::1747047843::1::::<><>::
+tonico_idle.png::CompressedTexture2D::4939641813353497106::1730211486::1747222041::1::::<><>::
+tonico_jump.png::CompressedTexture2D::990296636237381749::1730211660::1747222041::1::::<><>::
+tonico_land.png::CompressedTexture2D::1841870982471025310::1730211660::1747222041::1::::<><>::
+tonico_sprint.png::CompressedTexture2D::5339438278452277865::1730211486::1747222041::1::::<><>::
+tonico_walk.png::CompressedTexture2D::2296871106529738940::1730211486::1747222041::1::::<><>::
 ::res://assets/sprites/effects/::1746014309
 ::res://assets/sprites/enemies/::1747047843
 knight.png::CompressedTexture2D::4247649308265562548::1746614912::1747047843::1::::<><>::
@@ -30,8 +51,13 @@ Sprite-0003.png::CompressedTexture2D::5462136102261243777::1746616650::174704784
 coin.png::CompressedTexture2D::1565927640247899957::1746614912::1747047843::1::::<><>::
 fruit.png::CompressedTexture2D::2317394777001441795::1746614912::1747047843::1::::<><>::
 rock.png::CompressedTexture2D::6201268257772759023::1746616580::1747047843::1::::<><>::
-::res://assets/sprites/tileset/::1747047723
+::res://assets/sprites/tileset/::1747222041
+Assets.png::CompressedTexture2D::4213937506324753905::1572736044::1747222041::1::::<><>::
+Decors.png::CompressedTexture2D::2198503138306471106::1585236142::1747222041::1::::<><>::
+ExampleTiles.png::CompressedTexture2D::461125822307810030::1585236452::1747222041::1::::<><>::
+Other Assets.png::CompressedTexture2D::7127738382118539190::1560837282::1747222041::1::::<><>::
 platforms.png::CompressedTexture2D::9003188827371021255::1746614912::1747047723::1::::<><>::
+Tileset.png::CompressedTexture2D::6309938048046081166::1585236052::1747222041::1::::<><>::
 world_tileset.png::CompressedTexture2D::3542766960826018282::1746614912::1747047723::1::::<><>::
 ::res://assets/sprites/UI/::1747047843
 full heart.png::CompressedTexture2D::6041642637908215688::1746616774::1747047843::1::::<><>::
@@ -44,15 +70,17 @@ fusao-fantastica-sgdd.md::TextFile::-1::1746017075::0::1::::<><>::
 ::res://docs/scenes/::1746014386
 ::res://docs/scripts/::1746014391
 ::res://src/::1746013983
-::res://src/scenes/::1747051665
-damager.tscn::PackedScene::8385887972680577564::1747051595::0::1::::<><>::
-game_flag.tscn::PackedScene::5818050273896045072::1747051595::0::1::::<><>::res://src/scripts/game_flag.gd
-main.tscn::PackedScene::2202576408841569196::1747051595::0::1::::<><>::uid://bqqe4brb07g8a::::res://assets/sprites/tileset/world_tileset.png<>res://src/scripts/main.gd<>uid://dhpi0oilbrbw6::::res://src/scenes/ui.tscn<>uid://dg5g64dmje3aj::::res://src/scenes/player.tscn<>uid://co5ko5kq3in4c::::res://src/scenes/game_flag.tscn<>uid://dxknjw2qo7cng::::res://src/scenes/stone.tscn<>uid://drqgl5jiyxj1m::::res://src/scenes/damager.tscn
-player.tscn::PackedScene::7642747635465950441::1747051595::0::1::::<><>::res://src/scripts/player.gd<>uid://bqar6s7vfwffv::::res://assets/sprites/characters/Sprite-0001.png
-stone.tscn::PackedScene::8795055823316112232::1747051665::0::1::::<><>::uid://cul68nn7mqtbb::::res://assets/sprites/objects/rock.png
-ui.tscn::PackedScene::7682080751833314055::1747051595::0::1::::<><>::uid://81yms7800585::::res://assets/sprites/PixelOperator8-Bold.ttf<>uid://cscu8bd382ecm::::res://assets/sprites/UI/full heart.png<>uid://cdg3m3bhb8uf6::::res://assets/sprites/UI/haato.png
-::res://src/scripts/::1747051414
+::res://src/scenes/::1747223545
+damager.tscn::PackedScene::8385887972680577564::1747223384::0::1::::<><>::
+game_flag.tscn::PackedScene::5818050273896045072::1747223384::0::1::::<><>::res://src/scripts/game_flag.gd
+main.tscn::PackedScene::2202576408841569196::1747223384::0::1::::<><>::uid://bqqe4brb07g8a::::res://assets/sprites/tileset/world_tileset.png<>res://src/scripts/main.gd<>uid://dhpi0oilbrbw6::::res://src/scenes/ui.tscn<>uid://dg5g64dmje3aj::::res://src/scenes/player.tscn<>uid://co5ko5kq3in4c::::res://src/scenes/game_flag.tscn<>uid://dxknjw2qo7cng::::res://src/scenes/stone.tscn<>uid://drqgl5jiyxj1m::::res://src/scenes/damager.tscn
+player.tscn::PackedScene::7642747635465950441::1747223545::0::1::::<><>::res://src/scripts/player.gd<>uid://qxfahgytaf3h::::res://assets/sprites/characters/bia_idle.png<>uid://ci22f74idxcjb::::res://assets/sprites/characters/rafa_idle.png<>uid://ccm2gc5pbrrvm::::res://assets/sprites/characters/tonico_idle.png<>uid://cjddq76x4sa3u::::res://assets/sprites/characters/bia_jump.png<>uid://nyb52aropnkl::::res://assets/sprites/characters/bia_sprint.png<>uid://ckk83km1xdu4t::::res://assets/sprites/characters/rafa_jump.png<>uid://dl5limbkbbeg2::::res://assets/sprites/characters/rafa_sprint.png<>uid://cicp1ehakhcrh::::res://assets/sprites/characters/tonico_sprint.png<>uid://odybnkd037xx::::res://assets/sprites/characters/tonico_jump.png<>uid://7yveqclvmo41::::res://assets/sprites/characters/tonico_walk.png<>uid://cdkc2uxj73ja0::::res://assets/sprites/characters/bia_walk.png<>uid://bojn1c3ren38r::::res://assets/sprites/characters/bia_land.png<>uid://duchvcs04x2o2::::res://assets/sprites/characters/rafa_walk.png
+main_menu.tscn::PackedScene::2502342244942585036::1747223384::0::1::::<><>::res://src/scripts/main_menu.gd
+stone.tscn::PackedScene::8795055823316112232::1747223384::0::1::::<><>::uid://cul68nn7mqtbb::::res://assets/sprites/objects/rock.png
+ui.tscn::PackedScene::7682080751833314055::1747223384::0::1::::<><>::uid://81yms7800585::::res://assets/sprites/PixelOperator8-Bold.ttf<>uid://cscu8bd382ecm::::res://assets/sprites/UI/full heart.png<>uid://cdg3m3bhb8uf6::::res://assets/sprites/UI/haato.png
+::res://src/scripts/::1747219668
 game_flag.gd::GDScript::-1::1747048709::0::1::::GameFlag<>Area2D<>::
 game_manager.gd::GDScript::-1::1746616166::0::1::::GameManager<>Node<>::
 main.gd::GDScript::-1::1747048717::0::1::::<>Node2D<>::
-player.gd::GDScript::-1::1747051414::0::1::::Player<>CharacterBody2D<>::
+player.gd::GDScript::-1::1747223213::0::1::::Player<>CharacterBody2D<>::
+main_menu.gd::GDScript::-1::1747219830::0::1::::<>Control<>::
