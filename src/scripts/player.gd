@@ -18,7 +18,7 @@ enum Character { RAFA, BIA, TONICO }
 
 const STATS := {
 	Character.RAFA  : { "speed": 260.0, "jump_v": -380.0 },
-	Character.BIA   : { "speed": 220.0, "jump_v": -460.0 },
+	Character.BIA   : { "speed": 220.0, "jump_v": -490.0 },
 	Character.TONICO: { "speed": 160.0, "jump_v": -300.0 },
 }
 

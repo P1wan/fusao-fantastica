@@ -27,9 +27,9 @@ func flag_enter(player: Player, flag: GameFlag) -> void:
 			print("Started hint timer for flag")
 		GameFlag.FlagType.SUCCESS:
 			if player.current == flag.required_character:
-				_show_text("flag.hint_text")
-			else:
-				_show_text("... Eu não esperava que você conseguiria passar desse jeito...")
+				if not flag.has_meta("success_shown"):
+					_show_text(flag.hint_text)
+					flag.set_meta("success_shown", true)
 
 func flag_exit(_player: Player, flag: GameFlag) -> void:
 	print("GameManager: flag_exit called with flag ", flag)
