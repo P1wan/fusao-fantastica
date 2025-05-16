@@ -4,7 +4,8 @@ extends Node2D
 @onready var player: CharacterBody2D = $Player
 @onready var cam: Camera2D = $ScrollController/Camera2D
 @onready var ui: CanvasLayer = $ScrollController/Camera2D/UI
-@onready var hint: Label = $ScrollController/Camera2D/UI/HintLabel
+@onready var hint_panel: Panel = $ScrollController/Camera2D/UI/HintPanel
+@onready var hint_label: Label = $ScrollController/Camera2D/UI/HintPanel/HintLabel
 @onready var pause_menu = $ScrollController/Camera2D/UI/PauseMenu
 @onready var level_end = $LevelEnd
 
@@ -12,11 +13,14 @@ var is_paused := false
 var at_game_over := false
 
 func _ready():
+	print("HintPanel:", $ScrollController/Camera2D/UI/HintPanel)
+	print("HintLabel:", $ScrollController/Camera2D/UI/HintPanel/HintLabel)
+	hint_panel.visible = false  # Hide the panel by default
 	# Access the autoloaded game_manager directly
 	var game_manager = GameMaster
 	if game_manager:
-		game_manager.register_ui(hint)
-		print("UI label registered successfully")
+		game_manager.register_ui(hint_label, hint_panel)
+		print("UI label and panel registered successfully")
 	else:
 		print("ERROR: game_manager singleton not properly set up!")
 	# Connect LevelEnd signal
@@ -24,7 +28,7 @@ func _ready():
 
 func _process(_delta):
 	cam.position = player.global_position
-	hint.position = player.global_position + Vector2(-45,-64)
+	# hint_label.position = player.global_position + Vector2(-45,-64)
 
 	# Check for pause input or game over menu
 	if at_game_over:

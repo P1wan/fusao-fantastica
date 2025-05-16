@@ -1122,11 +1122,19 @@ offset_right = 621.0
 offset_bottom = 366.0
 text = "Sair"
 
-[node name="HintLabel" type="Label" parent="ScrollController/Camera2D/UI"]
-offset_left = 414.0
-offset_top = 123.0
-offset_right = 685.0
-offset_bottom = 150.0
+[node name="HintPanel" type="Panel" parent="ScrollController/Camera2D/UI"]
+visible = false
+offset_left = 397.0
+offset_top = 130.0
+offset_right = 731.58
+offset_bottom = 185.245
+
+[node name="HintLabel" type="Label" parent="ScrollController/Camera2D/UI/HintPanel"]
+offset_left = 31.0
+offset_top = 4.0
+offset_right = 302.0
+offset_bottom = 50.0
+autowrap_mode = 3
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -1221,6 +1229,7 @@ hint_text = "Caramba, você é forte mesmo!"
 [node name="GameFlag4" parent="HintsAndMessages" instance=ExtResource("11_xoitu")]
 position = Vector2(4092, 302)
 scale = Vector2(11.655, 12.27)
+hint_text = "É um beco sem Saída! a menos que alguém consiga passar por aquele túnel..."
 
 [node name="LevelEnd" type="Area2D" parent="."]
 position = Vector2(4468.39, 389.542)

@@ -225,7 +225,7 @@ scale = Vector2(6.07031, 6.07031)
 sprite_frames = SubResource("SpriteFrames_c7755")
 animation = &"new_animation"
 autoplay = "new_animation"
-frame_progress = 0.0840501
+frame_progress = 0.933243
 
 [node name="PressToContinue" type="Label" parent="."]
 offset_left = 910.0

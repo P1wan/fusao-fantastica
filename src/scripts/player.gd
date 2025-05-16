@@ -213,7 +213,12 @@ func _begin_grab(rb: RigidBody2D):
 	grab_offset    = rb.global_position - global_position  # Store full Vector2 offset
 	saved_mask     = rb.collision_mask
 	rb.collision_mask &= ~1                # ignora colisão com player
-	rb.mode = 3   # Set to kinematic while dragging
+	# Instead of moving the block, add the offset to grab_offset.x
+	var offset_dir = sign(grab_offset.x)
+	if offset_dir == 0:
+		offset_dir = 1 # Default to right if perfectly aligned
+	grab_offset.x += 10 * offset_dir
+	print("Applying offset to stone for", current)
 
 # -----------------------------------------------------------------------------
 func _process_grabbed_block():
@@ -246,5 +251,4 @@ func _process_grabbed_block():
 func _release_block():
 	if grabbing_block:
 		grabbing_block.collision_mask = saved_mask
-		grabbing_block.mode = 0   # Restore mode to rigid
 	grabbing_block = null

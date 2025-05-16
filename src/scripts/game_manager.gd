@@ -2,13 +2,15 @@ extends Node
 class_name GameManager
 
 @export var hint_delay : float = 5    # seconds inside before showing hint
-@onready var ui_label : Label = null     # link after scene is running
+@onready var ui_label : Label = get_tree().get_current_scene().get_node("Main/ScrollController/Camera2D/UI/HintPanel/HintLabel") 
+@onready var ui_panel : Panel = get_tree().get_current_scene().get_node("Main/ScrollController/Camera2D/UI/HintPanel")    # panel to show/hide
 
 var _hint_timers : Dictionary = {}       # flag -> elapsed seconds
 var shape_change_panel: Panel = null
 var game_flag1_ref: GameFlag = null
 var panel2: Panel = null
 var game_flag2_ref: GameFlag = null
+var _current_timer: SceneTreeTimer = null
 
 func _ready():
 	# Try to get references to GameFlag1, GameFlag2, and the panels
@@ -21,8 +23,11 @@ func _ready():
 	if get_tree().get_current_scene().has_node("GameFlag2"):
 		game_flag2_ref = get_tree().get_current_scene().get_node("GameFlag2")
 
-func register_ui(label: Label) -> void:
+	GameMaster.register_ui(ui_label, ui_panel)
+
+func register_ui(label: Label, panel: Panel) -> void:
 	ui_label = label
+	ui_panel = panel
 
 func _physics_process(delta):
 	var to_remove := []
@@ -35,7 +40,7 @@ func _physics_process(delta):
 		_hint_timers.erase(f)
 
 func flag_enter(player: Player, flag: GameFlag) -> void:
-	print("GameManager: flag_enter called with ", player, " and ", flag)
+	print("flag_enter called for flag:", flag, "with text:", flag.hint_text)
 	match flag.flag_type:
 		GameFlag.FlagType.HINT:
 			# Only use required_character for hints
@@ -53,17 +58,15 @@ func flag_exit(_player: Player, flag: GameFlag) -> void:
 	print("Removed hint timer for flag")
 
 func _show_text(msg: String, flag: GameFlag = null) -> void:
-	print("Showing text: ", msg)
-	if ui_label:
+	print("SHOW_TEXT CALLED WITH:", msg)
+	if ui_label and ui_panel:
+		print("ui_label and ui_panel are valid")
 		ui_label.text = msg
-		ui_label.visible = true
-		ui_label.modulate = Color.WHITE
-		ui_label.create_tween().tween_property(ui_label, "modulate:a", 0, 2).set_trans(Tween.TRANS_QUAD)
-		# If this is GameFlag1, unhide the panel
-		if flag != null and game_flag1_ref != null and flag == game_flag1_ref and shape_change_panel:
-			shape_change_panel.visible = true
-		# If this is GameFlag2, unhide Panel2
-		if flag != null and game_flag2_ref != null and flag == game_flag2_ref and panel2:
-			panel2.visible = true
+		ui_panel.visible = true
 	else:
-		print("ERROR: ui_label not set!")
+		print("ERROR: ui_label or ui_panel not set!", ui_label, ui_panel)
+
+func _on_hint_timeout():
+	if ui_panel:
+		ui_panel.visible = false
+	_current_timer = null

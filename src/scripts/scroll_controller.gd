@@ -5,7 +5,7 @@ var scroll_speed = 0
 var scroll_offset = Vector2.ZERO
 
 @onready var cam: Camera2D = $Camera2D
-@onready var hint: Label = $Camera2D/UI/HintLabel
+@onready var hint: Label = $Camera2D/UI/HintPanel/HintLabel
 @onready var player: Node2D = null
 @onready var tilemap: TileMapLayer = get_node("../TileMapLayer")
 

@@ -34,7 +34,7 @@ func _ready() -> void:
 		print("ERROR: game_manager singleton not found!")
 
 func _on_enter(body):
-	print("Body entered flag area: ", body)
+	print("Body entered flag area:", body)
 	if body is Player:
 		print("Player entered flag area")
 		emit_signal("player_enter", body, self)
