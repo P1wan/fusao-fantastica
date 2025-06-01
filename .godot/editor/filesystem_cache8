@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1747219915
+::res://::1748792340
 icon.svg::CompressedTexture2D::1447882900164461647::1746017046::1746017323::1::::<><>::
 README.md::TextFile::-1::1746017046::0::1::::<><>::
 ::res://assets/::1746014284
@@ -22,7 +22,7 @@ Background_2.png::CompressedTexture2D::6096791296734609326::1560837602::17472220
 BG1.png::CompressedTexture2D::7664641795524800772::1585236072::1747222041::1::::<><>::
 BG2.png::CompressedTexture2D::1449958502509039669::1585236078::1747222041::1::::<><>::
 BG3.png::CompressedTexture2D::4102845018370693430::1585236082::1747222041::1::::<><>::
-::res://assets/sprites/characters/::1747223527
+::res://assets/sprites/characters/::1747223555
 bia_idle.png::CompressedTexture2D::1170806149563850115::1747221893::1747222041::1::::<><>::
 bia_jump.png::CompressedTexture2D::5410946546792069068::1747221895::1747222041::1::::<><>::
 bia_land.png::CompressedTexture2D::3388479795039099691::1747223554::1747223555::1::::<><>::
@@ -70,17 +70,17 @@ fusao-fantastica-sgdd.md::TextFile::-1::1746017075::0::1::::<><>::
 ::res://docs/scenes/::1746014386
 ::res://docs/scripts/::1746014391
 ::res://src/::1746013983
-::res://src/scenes/::1747223545
-damager.tscn::PackedScene::8385887972680577564::1747223384::0::1::::<><>::
-game_flag.tscn::PackedScene::5818050273896045072::1747223384::0::1::::<><>::res://src/scripts/game_flag.gd
-main.tscn::PackedScene::2202576408841569196::1747223384::0::1::::<><>::uid://bqqe4brb07g8a::::res://assets/sprites/tileset/world_tileset.png<>res://src/scripts/main.gd<>uid://dhpi0oilbrbw6::::res://src/scenes/ui.tscn<>uid://dg5g64dmje3aj::::res://src/scenes/player.tscn<>uid://co5ko5kq3in4c::::res://src/scenes/game_flag.tscn<>uid://dxknjw2qo7cng::::res://src/scenes/stone.tscn<>uid://drqgl5jiyxj1m::::res://src/scenes/damager.tscn
-player.tscn::PackedScene::7642747635465950441::1747223545::0::1::::<><>::res://src/scripts/player.gd<>uid://qxfahgytaf3h::::res://assets/sprites/characters/bia_idle.png<>uid://ci22f74idxcjb::::res://assets/sprites/characters/rafa_idle.png<>uid://ccm2gc5pbrrvm::::res://assets/sprites/characters/tonico_idle.png<>uid://cjddq76x4sa3u::::res://assets/sprites/characters/bia_jump.png<>uid://nyb52aropnkl::::res://assets/sprites/characters/bia_sprint.png<>uid://ckk83km1xdu4t::::res://assets/sprites/characters/rafa_jump.png<>uid://dl5limbkbbeg2::::res://assets/sprites/characters/rafa_sprint.png<>uid://cicp1ehakhcrh::::res://assets/sprites/characters/tonico_sprint.png<>uid://odybnkd037xx::::res://assets/sprites/characters/tonico_jump.png<>uid://7yveqclvmo41::::res://assets/sprites/characters/tonico_walk.png<>uid://cdkc2uxj73ja0::::res://assets/sprites/characters/bia_walk.png<>uid://bojn1c3ren38r::::res://assets/sprites/characters/bia_land.png<>uid://duchvcs04x2o2::::res://assets/sprites/characters/rafa_walk.png
-main_menu.tscn::PackedScene::2502342244942585036::1747223384::0::1::::<><>::res://src/scripts/main_menu.gd
-stone.tscn::PackedScene::8795055823316112232::1747223384::0::1::::<><>::uid://cul68nn7mqtbb::::res://assets/sprites/objects/rock.png
-ui.tscn::PackedScene::7682080751833314055::1747223384::0::1::::<><>::uid://81yms7800585::::res://assets/sprites/PixelOperator8-Bold.ttf<>uid://cscu8bd382ecm::::res://assets/sprites/UI/full heart.png<>uid://cdg3m3bhb8uf6::::res://assets/sprites/UI/haato.png
+::res://src/scenes/::1747224439
+damager.tscn::PackedScene::8385887972680577564::1747223932::0::1::::<><>::
+game_flag.tscn::PackedScene::5818050273896045072::1747223932::0::1::::<><>::res://src/scripts/game_flag.gd
+main.tscn::PackedScene::2202576408841569196::1747224439::0::1::::<><>::uid://bqqe4brb07g8a::::res://assets/sprites/tileset/world_tileset.png<>res://src/scripts/main.gd<>uid://dhpi0oilbrbw6::::res://src/scenes/ui.tscn<>uid://b1bi6162js6fl::::res://assets/sprites/tileset/Assets.png<>uid://dg5g64dmje3aj::::res://src/scenes/player.tscn<>uid://c8sy2sdrln6ra::::res://assets/sprites/tileset/Other Assets.png<>uid://co5ko5kq3in4c::::res://src/scenes/game_flag.tscn<>uid://dxknjw2qo7cng::::res://src/scenes/stone.tscn
+main_menu.tscn::PackedScene::2502342244942585036::1747223932::0::1::::<><>::res://src/scripts/main_menu.gd
+player.tscn::PackedScene::7642747635465950441::1747223932::0::1::::<><>::res://src/scripts/player.gd<>uid://qxfahgytaf3h::::res://assets/sprites/characters/bia_idle.png<>uid://ci22f74idxcjb::::res://assets/sprites/characters/rafa_idle.png<>uid://ccm2gc5pbrrvm::::res://assets/sprites/characters/tonico_idle.png<>uid://cjddq76x4sa3u::::res://assets/sprites/characters/bia_jump.png<>uid://nyb52aropnkl::::res://assets/sprites/characters/bia_sprint.png<>uid://ckk83km1xdu4t::::res://assets/sprites/characters/rafa_jump.png<>uid://dl5limbkbbeg2::::res://assets/sprites/characters/rafa_sprint.png<>uid://cicp1ehakhcrh::::res://assets/sprites/characters/tonico_sprint.png<>uid://odybnkd037xx::::res://assets/sprites/characters/tonico_jump.png<>uid://7yveqclvmo41::::res://assets/sprites/characters/tonico_walk.png<>uid://cdkc2uxj73ja0::::res://assets/sprites/characters/bia_walk.png<>uid://bojn1c3ren38r::::res://assets/sprites/characters/bia_land.png<>uid://cxvuw3u1ah4ei::::res://assets/sprites/characters/rafa_land.png<>uid://duchvcs04x2o2::::res://assets/sprites/characters/rafa_walk.png<>uid://1ihl07okk8sg::::res://assets/sprites/characters/tonico_land.png
+stone.tscn::PackedScene::8795055823316112232::1747223932::0::1::::<><>::uid://cul68nn7mqtbb::::res://assets/sprites/objects/rock.png
+ui.tscn::PackedScene::7682080751833314055::1747223932::0::1::::<><>::uid://81yms7800585::::res://assets/sprites/PixelOperator8-Bold.ttf<>uid://cscu8bd382ecm::::res://assets/sprites/UI/full heart.png<>uid://cdg3m3bhb8uf6::::res://assets/sprites/UI/haato.png
 ::res://src/scripts/::1747219668
 game_flag.gd::GDScript::-1::1747048709::0::1::::GameFlag<>Area2D<>::
 game_manager.gd::GDScript::-1::1746616166::0::1::::GameManager<>Node<>::
 main.gd::GDScript::-1::1747048717::0::1::::<>Node2D<>::
-player.gd::GDScript::-1::1747223213::0::1::::Player<>CharacterBody2D<>::
 main_menu.gd::GDScript::-1::1747219830::0::1::::<>Control<>::
+player.gd::GDScript::-1::1747224429::0::1::::Player<>CharacterBody2D<>::
