@@ -18,7 +18,7 @@ enum Character { RAFA, BIA, TONICO }
 
 const STATS := {
 	Character.RAFA  : { "speed": 260.0, "jump_v": -380.0 },
-	Character.BIA   : { "speed": 220.0, "jump_v": -460.0 },
+	Character.BIA   : { "speed": 220.0, "jump_v": -490.0 },
 	Character.TONICO: { "speed": 160.0, "jump_v": -300.0 },
 }
 
@@ -29,6 +29,7 @@ const STATS := {
 }
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio_manager = get_node("/root/AudioManager")
 
 # Push params ------------------------------------------------------------------
 @export var tonico_push_speed   : float = 50.0   # vel. máx. segurando
@@ -53,6 +54,10 @@ var last_direction := 1  # 1 for right, -1 for left
 var was_on_floor := true  # Track previous frame's floor state
 var is_landing := false  # Track if currently playing landing animation
 
+# SFX cooldowns
+var walk_sfx_cooldown := 0.0
+var drag_sfx_cooldown := 0.0
+
 # Ready ------------------------------------------------------------------------
 func _ready():
 	_apply_shape()
@@ -73,6 +78,8 @@ func _apply_idle_anim():
 
 # -----------------------------------------------------------------------------
 func _physics_process(delta):
+	walk_sfx_cooldown = max(0, walk_sfx_cooldown - delta)
+	drag_sfx_cooldown = max(0, drag_sfx_cooldown - delta)
 	var dir_input := Input.get_axis("ui_left", "ui_right")
 	var max_speed = tonico_push_speed if (grabbing_block and current == Character.TONICO) else STATS[current]["speed"]
 	velocity.x = move_toward(velocity.x, dir_input * max_speed, acceleration * delta)
@@ -81,11 +88,17 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		if grabbing_block and current == Character.TONICO:
 			_release_block()
+		audio_manager.play_sfx("jump")
 		velocity.y = STATS[current]["jump_v"]
 
 	# Gravidade
 	velocity.y += gravity * delta
 	move_and_slide()
+
+	# Walk SFX
+	if abs(velocity.x) > 10 and is_on_floor() and walk_sfx_cooldown == 0:
+		audio_manager.play_sfx("walk")
+		walk_sfx_cooldown = 0.35 # adjust to match step timing
 
 	# Update animations after movement
 	_update_animations()
@@ -99,8 +112,10 @@ func _physics_process(delta):
 
 	# Swap personagem ---------------------------------------------------------
 	if Input.is_action_just_pressed("swap_next"):
+		audio_manager.play_sfx("transform")
 		current = ((current + 1) % 3) as Character
 	elif Input.is_action_just_pressed("swap_prev"):
+		audio_manager.play_sfx("transform")
 		current = ((current + 2) % 3) as Character
 
 # Animation handling ----------------------------------------------------------
@@ -198,6 +213,12 @@ func _begin_grab(rb: RigidBody2D):
 	grab_offset    = rb.global_position - global_position  # Store full Vector2 offset
 	saved_mask     = rb.collision_mask
 	rb.collision_mask &= ~1                # ignora colisão com player
+	# Instead of moving the block, add the offset to grab_offset.x
+	var offset_dir = sign(grab_offset.x)
+	if offset_dir == 0:
+		offset_dir = 1 # Default to right if perfectly aligned
+	grab_offset.x += 10 * offset_dir
+	print("Applying offset to stone for", current)
 
 # -----------------------------------------------------------------------------
 func _process_grabbed_block():
@@ -208,34 +229,23 @@ func _process_grabbed_block():
 		_release_block()
 		return
 
-	# Calculate target X position only (let gravity handle Y)
+	# End grab if stone falls too far vertically
+	if abs(grabbing_block.global_position.y - (global_position.y + grab_offset.y)) > 8:
+		_release_block()
+		return
+
+	# Target position: horizontally offset from player, vertically aligned
 	var target_x = global_position.x + grab_offset.x
-	
-	# Check if pushing (moving in same direction as offset) and apply buffer
-	var dir_input = Input.get_axis("ui_left", "ui_right")
-	if abs(dir_input) > 0.1:  # Player is moving
-		var moving_right = dir_input > 0
-		var offset_right = grab_offset.x > 0
-		
-		# If pushing (moving towards the block), add buffer distance
-		if moving_right == offset_right:
-			var buffer_direction = 1 if offset_right else -1
-			target_x += buffer_direction * push_buffer
-	
-	# Only move horizontally, let gravity handle vertical movement
-	var movement = Vector2(target_x - grabbing_block.global_position.x, 0)
-	
-	if abs(movement.x) > 0.1:  # Only move if there's significant horizontal difference
-		var collision = grabbing_block.move_and_collide(movement)
-		# If collision occurred during push, stop Tonico's movement
-		if collision and abs(dir_input) > 0.1:
-			var moving_right = dir_input > 0
-			var offset_right = grab_offset.x > 0
-			if moving_right == offset_right:  # Was pushing
-				velocity.x = 0  # Stop Tonico
-		
-		# Update grab_offset Y to current relative position (so it doesn't jump when grabbed again)
-		grab_offset.y = grabbing_block.global_position.y - global_position.y
+	var target_y = global_position.y + grab_offset.y
+	var target_pos = Vector2(target_x, target_y)
+
+	# Smoothly interpolate to target position
+	grabbing_block.global_position = grabbing_block.global_position.lerp(target_pos, 0.5)
+
+	# Play drag sound if moving
+	if abs(target_x - grabbing_block.global_position.x) > 0.1 and drag_sfx_cooldown == 0:
+		audio_manager.play_sfx("drag")
+		drag_sfx_cooldown = 0.25
 
 # -----------------------------------------------------------------------------
 func _release_block():
