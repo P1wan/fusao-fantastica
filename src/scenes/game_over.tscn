@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/scripts/game_over.gd" id="1_jso6m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t3ldx"]
-font_size = 72
+font_size = 29
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_jso6m")
@@ -16,11 +16,15 @@ offset_bottom = 646.0
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = -174.0
-offset_top = 187.0
-offset_right = 1365.0
-offset_bottom = 388.0
-text = "Você venceu! 
-Obrigado por jogar essa demo!"
+offset_left = 104.0
+offset_top = 62.0
+offset_right = 1001.0
+offset_bottom = 619.0
+text = " Vocês uniram coragem, inteligência e amizade para superar cada desafio.
+Quando Rafa correu baixo, Bia saltou alto e Tonico moveu montanhas, descobrimos que a maior força é a cooperação.
+
+Obrigado por ajudar o trio da Fusão Fantástica a mostrar que, juntos, ninguém fica para trás.
+Hora de celebrar: o jogo termina, mas a empatia continua!"
 label_settings = SubResource("LabelSettings_t3ldx")
 horizontal_alignment = 1
+autowrap_mode = 3

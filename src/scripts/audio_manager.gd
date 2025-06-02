@@ -7,7 +7,7 @@ const MUSIC   := {
 	"elron_theme": preload("res://assets/sound/music/ElronTheme.ogg")
 }
 const SFX     := {
-	"jump": preload("res://assets/sound/sfx/Jump.wav"),
+	"jump": preload("res://assets/sound/sfx/jump.wav"),
 	"click": preload("res://assets/sound/sfx/Confirm.wav"),
 	"walk": preload("res://assets/sound/sfx/Footsteps.wav"),
 	"drag": preload("res://assets/sound/sfx/Drag.wav"),

@@ -211,25 +211,33 @@ animations = [{
 script = ExtResource("1_u8pbi")
 
 [node name="Dialogue" type="RichTextLabel" parent="."]
-offset_left = 181.0
-offset_top = 472.0
-offset_right = 1001.0
-offset_bottom = 576.0
+offset_left = 196.0
+offset_top = 563.0
+offset_right = 1016.0
+offset_bottom = 667.0
 theme_override_fonts/normal_font = ExtResource("1_puomj")
 text = "Rafa, Bia e Tonico se perderam do grupo em uma excursão, atraídos por uma luz azul misteriosa, eles caíram em um portal para outro mundo"
 tab_size = 8
 
+[node name="PressToContinue" type="Label" parent="."]
+visible = false
+offset_left = 940.0
+offset_top = 675.0
+offset_right = 1169.0
+offset_bottom = 711.0
+text = "Aperte Espaço para continuar"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 649.0
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(578, 226)
 scale = Vector2(6.07031, 6.07031)
 sprite_frames = SubResource("SpriteFrames_c7755")
 animation = &"new_animation"
 autoplay = "new_animation"
 frame_progress = 0.933243
-
-[node name="PressToContinue" type="Label" parent="."]
-offset_left = 910.0
-offset_top = 600.0
-offset_right = 1139.0
-offset_bottom = 636.0
-text = "Aperte Espaço para continuar"

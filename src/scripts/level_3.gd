@@ -64,4 +64,4 @@ func play_menu_in_sfx():
 
 func _on_level_end_body_entered(body):
 	if body == player:
-		get_tree().change_scene_to_file("res://src/scenes/level_3.tscn")
+		get_tree().change_scene_to_file("res://src/scenes/game_over.tscn")
